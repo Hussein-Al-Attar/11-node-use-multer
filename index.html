@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MY APP</title>
+</head>
+<body>
+  
+ <!-- SINGLE FILE -->
+<form action="/profile" enctype="multipart/form-data" method="POST"> 
+   <input type="file" name="myFile" />
+   <input type="submit" value="Upload a file"/>
+</form>
+<!-- MULTIPLE FILES -->
+<form action="/uploadmultiple"  enctype="multipart/form-data" method="POST">
+  Select images: <input type="file" name="myFiles" multiple>
+  <input type="submit" value="Upload your files"/>
+</form>
+  <!-- PHOTO-->
+<form action="/uploadphoto" enctype="multipart/form-data" method="POST"> 
+  <input type="file" name="myImage" accept="image/*" />
+  <input type="submit" value="Upload Photo"/>
+</form>
+<form action="http://127.0.0.1:3000/stats" enctype="multipart/form-data" method="POST">
+    <div class="form-group">
+      <input type="file" class="form-control-file" name="uploaded_file">
+      <input type="text" class="form-control" placeholder="Number of speakers" name="nspeakers">
+      <input type="submit" value="Get me the stats!" class="btn btn-default">            
+    </div>
+  </form>
+</body>
+</html>
