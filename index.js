@@ -1,21 +1,10 @@
-const express = require('express')
-const multer  = require('multer')
-var path = require('path');
-var storage = multer.diskStorage(
-    {
-        destination: './uploads/',
-        filename: function ( req, file, cb ) {
-            //req.body is empty...
-            cb( null, Math.random()*100000000000000000+path.extname(file.originalname));
-        }
-    }
-);
-const upload = multer({ storage: storage })
+const express = require('express');
+const uploadImg = require('./middleware/uploadImg');
 
 const app = express()
 
-app.post('/stats', upload.single("uploaded_file"), function (req, res) {
-res.json({ message: 'Successfully uploaded image!' });
+app.post('/stats',uploadImg, function (req, res) {
+res.send(req.file.filename);
 });
 
 app.listen(3000, () => 
